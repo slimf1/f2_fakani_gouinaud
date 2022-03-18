@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="fr.isima.expressvoyage.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_details"
+            app:destination="@id/navigation_details"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="fr.isima.expressvoyage.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="fr.isima.expressvoyage.ui.map.MapsFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_maps">
+        <argument
+            android:name="countryLocation"
+            app:argType="fr.isima.expressvoyage.models.CountryLocation" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="fr.isima.expressvoyage.ui.location.LocationDetailFragment"
+        android:label="Location">
+        <argument
+            android:name="countryData"
+            app:argType="fr.isima.expressvoyage.models.CountryData" />
+        <action
+            android:id="@+id/action_details_to_map"
+            app:destination="@id/navigation_map"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+</navigation>
